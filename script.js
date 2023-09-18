@@ -1,11 +1,17 @@
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
+//your code here
+// Get all elements with data-ns-test="prices" attribute
+const priceElements = document.querySelectorAll('[data-ns-test="prices"]');
 
-const getSum = () => {
-//Add your code here
-  
-};
+// Initialize total price to zero
+let totalPrice = 0;
 
-getSumBtn.addEventListener("click", getSum);
+// Loop through the price elements and sum their values
+priceElements.forEach((priceElement) => {
+  totalPrice += parseFloat(priceElement.textContent);
+});
 
+// Get the grand total cell
+const grandTotalCell = document.querySelector('[data-ns-test="grandTotal"]');
+
+// Update the grand total cell with the calculated total
+grandTotalCell.textContent = totalPrice.toFixed(2); // Assuming you want to display the total with two decimal places
